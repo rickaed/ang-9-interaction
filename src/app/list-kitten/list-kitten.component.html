@@ -1,0 +1,19 @@
+<header>
+    <h1>Chat à adopter</h1>
+</header>
+<div class="cards" > <!-- ngFor-->
+    <div class="card" *ngFor="let kitten of listKitten">
+        <div class="card-header">
+            <div class="card-img" >
+                <img [src]="kitten.image" [alt]="kitten.name">
+            </div>
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">{{kitten.name}}</h2>
+            <p>race : {{kitten.race}}</p>
+            <p>né le : {{kitten.birthDay | date:"dd/MM/YYYY"}}</p>
+
+            <button class="card-button">Je l'adopte !</button>
+        </div>
+    </div>
+</div>
