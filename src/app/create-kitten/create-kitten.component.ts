@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Kitten } from '../models/kitten-model';
 
 @Component({
@@ -6,16 +6,24 @@ import { Kitten } from '../models/kitten-model';
   templateUrl: './create-kitten.component.html',
   styleUrls: ['./create-kitten.component.scss']
 })
-export class CreateKittenComponent {
+export class CreateKittenComponent implements OnInit {
 
   newKitten: Kitten = new Kitten (
     "",
     "",
-    new Date(),
+    new Date(""),
     ""
   );
 
+  @Output()
+  sendNewKitten:EventEmitter<object>=new EventEmitter
+  
   onSubmit() {
-return this.newKitten
+    console.log(this.newKitten)
+this.sendNewKitten.emit(this.newKitten);
+  }
+  
+  ngOnInit(): void {
+   
   }
 }

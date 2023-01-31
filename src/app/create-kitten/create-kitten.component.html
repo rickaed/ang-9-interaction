@@ -3,10 +3,10 @@
     <!-- Form submitted ? {{kittenForm.submitted}}
     Form valid ? {{kittenForm.valid}}
     Form invalid ? {{kittenForm.valid}} -->
+    <h1>Ajouter un chat</h1>
     <fieldset>
-        <legend>
-            <label for="name">Nom :</label>
-        </legend>
+        <legend> Nom:</legend>
+                 
         <input id="name" name="name" type="text" placeholder="nom de chat" [(ngModel)]="newKitten.name" #name="ngModel" minlength="3"
             maxlength="15" required>
         <div *ngIf="name.errors && kittenForm.submitted">
@@ -18,7 +18,7 @@
 
     <fieldset>
         <legend>
-            <label for="race">Race :</label>
+           Race
         </legend>
         <select id="race" name="race"  [(ngModel)]="newKitten.race" #race="ngModel" required>
             <option value="">--Race de chat--</option>
@@ -40,9 +40,9 @@
 
     <fieldset>
         <legend>
-            <label for="date">Date de naissance</label>
+           Date de naissance
         </legend>
-        <input id="date" name="date" type="date" [(ngModel)]="newKitten.birthDay" #date="ngModel" min="2003-01-01" max="2023-01-30" required>
+        <input id="date" name="date" type="date" [(ngModel)]="newKitten.birthDay" #date="ngModel" min="2003-01-01" max="2023-01-31" required>
         <div *ngIf="date.errors && kittenForm.submitted">
             <span *ngIf="date.errors['required']">La date de naissance est requise.</span>
         </div>
@@ -50,10 +50,11 @@
 
     <fieldset>
         <legend>
-            <label for="photo">Portrait du chat</label>
+            Portrait du chat
         </legend>
-        <input id="photo" name="photo" type="url" placeholder="http://example.xx" [(ngModel)]="newKitten.image">
+        <input id="image" name="image" type="url" placeholder="http://example.xx" [(ngModel)]="newKitten.image" required>
+    
     </fieldset>
-
-    <button type="submit">Envoyer</button>
+    <!-- (click)="onSubmit()" -->
+    <button type="submit" >Ajouter</button>
 </form>

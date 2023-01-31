@@ -3,6 +3,6 @@ export class Kitten {
         public name: string,
         public race: string,
         public birthDay: Date,
-        public image?: string,
+        public image: string,
     ) { }
 }
