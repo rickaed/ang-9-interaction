@@ -8,7 +8,7 @@ import { Kitten } from '../models/kitten-model';
 })
 export class ListKittenComponent{
   
-  @Input() kittenList!:Kitten;
+  @Input() kittenList!:Kitten[];
     
   
 

@@ -1,9 +1,10 @@
-h1{
-text-align: center;
+h1 {
+    text-align: center;
 }
+
 form {
     width: 25vw;
-// padding: auto 10px;
+    // padding: auto 10px;
     background-color: var(--bg-create-kitten);
     display: flex;
     flex-direction: column;
@@ -19,10 +20,23 @@ fieldset {
     align-self: center;
 }
 
-legend{
+legend {
     margin: 10px 0;
 }
 
-// label {
-//     display: block;
-// }
+.btn {
+    background: #88CB53;
+    color: var(--colorBlanc);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #85df40;
+    transition: all 0.3s;
+}
+
+.btn:disabled {
+    background: rgb(166, 165, 165);
+    cursor: not-allowed;
+}

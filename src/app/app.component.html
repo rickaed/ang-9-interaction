@@ -1,8 +1,9 @@
 <section>
     <div>
-        <app-create-kitten></app-create-kitten>
+        
+        <app-create-kitten (sendNewKitten)="receiveNewKitten($event)"></app-create-kitten>
         <app-user-kitten></app-user-kitten>
     </div>
-    <app-list-kitten *ngFor="let kitten of kittenList" [k> </app-list-kitten>
+    <app-list-kitten [kittenList]="kittensList"> </app-list-kitten>
 
 </section>

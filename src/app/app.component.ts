@@ -9,13 +9,17 @@ import { Kitten } from './models/kitten-model';
 export class AppComponent implements OnInit {
   title = 'kitten-story';
 
-  kittenList: Array<object> = [];
-  onReceiveNewKitten(event: object): void {
-    this.kittenList.push(event)
+  kittensList: Kitten[] = [];
+  userKittenList : Kitten[]=[];
+
+  
+  receiveNewKitten(event: Kitten): void {
+    // console.log(this.kittensList) /* fonctionne */
+    this.kittensList.push(event)
   };
 
   ngOnInit(): void {
-    this.kittenList = [
+    this.kittensList = [
       {
         name: "Stipo",
         race: "Bombay",
