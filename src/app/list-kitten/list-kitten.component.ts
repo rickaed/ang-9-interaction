@@ -7,7 +7,7 @@ import { Kitten } from '../models/kitten-model';
   styleUrls: ['./list-kitten.component.scss']
 })
 export class ListKittenComponent {
-
+hidden = true
   @Input() kittenList!: Kitten[];
 
   @Output()

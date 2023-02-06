@@ -1,4 +1,4 @@
-<form #kittenForm="ngForm" (ngSubmit)="kittenForm.valid && onSubmit()">
+<form #kittenForm="ngForm" (ngSubmit)="kittenForm.valid && onSubmit(kittenForm)">
 
     <!-- Form submitted ? {{kittenForm.submitted}}
     Form valid ? {{kittenForm.valid}}
@@ -6,9 +6,9 @@
     <h1>Ajouter un chat</h1>
     <fieldset>
         <legend> Nom:</legend>
-                 
-        <input id="name" name="name" type="text" placeholder="nom de chat" [(ngModel)]="newKitten.name" #name="ngModel" minlength="3"
-            maxlength="15" required>
+
+        <input id="name" name="name" type="text" placeholder="nom de chat" [(ngModel)]="newKitten.name" #name="ngModel"
+            minlength="3" maxlength="15" required>
         <div *ngIf="name.errors && kittenForm.submitted">
             <span *ngIf="name.errors['required']">Le nom est requis.</span>
             <span *ngIf="name.errors['minlength']">Le nom doit comporter au moins 3 caractères.</span>
@@ -18,12 +18,12 @@
 
     <fieldset>
         <legend>
-           Race
+            Race
         </legend>
-        <select id="race" name="race"  [(ngModel)]="newKitten.race" #race="ngModel" required>
-            <option [value]="select.race" *ngFor="let select of raceKitten,let index" (click)="captIndex(select.img)" >{{select.race}}</option>
-            <!-- <option [value]="race.race" *ngFor="let race of raceKitten" >{{race.race}}</option> -->
-          
+        <select id="race" name="race" [(ngModel)]="newKitten.race" #race="ngModel" required>
+            <option [value]="select.race" *ngFor="let select of raceKitten,let index" (click)="captImg(select.img)">
+                {{select.race}}</option>
+
         </select>
         <div *ngIf="race.errors && kittenForm.submitted">
             <span *ngIf="race.errors['required']">La race est requise.</span>
@@ -32,9 +32,10 @@
 
     <fieldset>
         <legend>
-           Date de naissance
+            Date de naissance
         </legend>
-        <input id="date" name="date" type="date" [(ngModel)]="newKitten.birthDay" #date="ngModel" min="2003-01-01" max="2023-01-31" required>
+        <input id="date" name="date" type="date" [(ngModel)]="newKitten.birthDay" #date="ngModel" min="2003-01-01"
+            required>
         <div *ngIf="date.errors && kittenForm.submitted">
             <span *ngIf="date.errors['required']">La date de naissance est requise.</span>
         </div>
@@ -44,8 +45,9 @@
         <legend>
             Portrait du chat
         </legend>
-        <input id="image" name="image" type="url" [placeholder]="newKitten.image" [(ngModel)]="newKitten.image" required>
-    
+        <input id="image" name="image" type="url" [placeholder]="newKitten.image" [(ngModel)]="newKitten.image"
+            required>
+
     </fieldset>
     <!-- (click)="onSubmit()" -->
     <button class="btn" type="submit" [disabled]="kittenForm.invalid">Ajouter</button>

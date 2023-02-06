@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Kitten } from '../models/kitten-model';
 import { RaceKittenService } from '../services/race-kitten.service';
 
@@ -10,7 +11,7 @@ import { RaceKittenService } from '../services/race-kitten.service';
 export class CreateKittenComponent implements OnInit {
   constructor(private receKittenServ: RaceKittenService) { }
 
-  newKitten: Kitten = new Kitten("", "", new Date, "");
+  newKitten: Kitten = new Kitten("", "", "", "");
   raceKitten: any;
 
   ngOnInit(): void {
@@ -19,19 +20,18 @@ export class CreateKittenComponent implements OnInit {
 
   getRaceKitten() {
     this.raceKitten = this.receKittenServ.getRaceKitten();
-    console.log(this.raceKitten);
   }
 
-  captIndex(img: string) {
+  captImg(img: string) {
     this.newKitten.image = img
-    console.log(img);
-
-
   }
+
   @Output() sendNewKitten: EventEmitter<Kitten> = new EventEmitter<Kitten>();
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
     this.sendNewKitten.emit(this.newKitten);
+   
+
   }
 
 
