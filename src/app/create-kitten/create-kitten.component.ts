@@ -1,6 +1,4 @@
-import { formatCurrency } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Kitten } from '../models/kitten-model';
 
 @Component({
@@ -15,10 +13,7 @@ export class CreateKittenComponent implements OnInit {
     "",
     new Date(""),
     ""
-  );
-
-
-  
+  );  
 
   @Output() sendNewKitten: EventEmitter<Kitten> = new EventEmitter<Kitten>();
 

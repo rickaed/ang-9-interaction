@@ -2,7 +2,7 @@
     <h1>Chat à adopter</h1>
 </header>
 <div class="cards" > <!-- ngFor-->
-    <div class="card" *ngFor="let kitten of kittenList">
+    <div class="card" *ngFor="let kitten of kittenList; let index=index">
         <div class="card-header">
             <div class="card-img" >
                 <img [src]="kitten.image" [alt]="kitten.name">
@@ -13,7 +13,7 @@
             <p>race : {{kitten.race}}</p>
             <p>né le : {{kitten.birthDay | date:"dd/MM/YYYY"}}</p>
 
-            <button class="card-button" (click)="pickUp()">Je l'adopte !</button>
+            <button class="card-button" (click)="onSubmit(index)">Je l'adopte !</button>
         </div>
     </div>
 </div>

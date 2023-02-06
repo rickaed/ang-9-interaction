@@ -2,8 +2,8 @@
     <div>
         
         <app-create-kitten (sendNewKitten)="receiveNewKitten($event)"></app-create-kitten>
-        <app-user-kitten></app-user-kitten>
+        <app-user-kitten [userKittenList]="userKittenList"></app-user-kitten>
     </div>
-    <app-list-kitten [kittenList]="kittensList"> </app-list-kitten>
+    <app-list-kitten [kittenList]="kittensList" (adoptKitten)="myKittens($event)"> </app-list-kitten>
 
 </section>

@@ -1,2 +1,12 @@
-<h1 >{{UserKittenList.length >1? }}</h1>
-<p>side bar avec image (seulement) de MES chatons</p>
+<header>
+    <h1>Chat à adopter</h1>
+</header>
+<div class="cards"> 
+    <div class="card" *ngFor="let kitten of userKittenList">
+        <div class="card-header">
+            <div class="card-img">
+                <img [src]="kitten.image" [alt]="kitten.name">
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,13 +10,19 @@ export class AppComponent implements OnInit {
   title = 'kitten-story';
 
   kittensList: Kitten[] = [];
-  userKittenList : Kitten[]=[];
+  userKittenList: Kitten[] = [];
 
-  
+
   receiveNewKitten(event: Kitten): void {
     // console.log(this.kittensList) /* fonctionne */
     this.kittensList.push(event)
   };
+
+  myKittens(event: any) {
+    this.userKittenList.push(this.kittensList[event]);
+     this.kittensList.splice(event,1)
+    
+  }
 
   ngOnInit(): void {
     this.kittensList = [
