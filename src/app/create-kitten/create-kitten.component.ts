@@ -13,14 +13,12 @@ export class CreateKittenComponent implements OnInit {
     "",
     new Date(""),
     ""
-  );  
+  );
 
   @Output() sendNewKitten: EventEmitter<Kitten> = new EventEmitter<Kitten>();
 
   onSubmit() {
-    // console.log(this.newKitten) /*fonctionne*/
     this.sendNewKitten.emit(this.newKitten);
-    
   }
 
   ngOnInit(): void {

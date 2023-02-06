@@ -19,6 +19,4 @@ export class ListKittenComponent {
     this.adoptKitten.emit(index)
 
   }
-
-
 }
